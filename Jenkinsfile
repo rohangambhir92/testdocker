@@ -68,7 +68,7 @@ pipeline{
         	{
 			steps
 			{
-                	bat "docker run --name testrgdocker -d -p 9989:8080 tag11:${BUILD_NUMBER}"
+                	bat "docker run --name testrgdocker -d -p 9003:8080 tag11:${BUILD_NUMBER}"
         		}
 		}
     }
