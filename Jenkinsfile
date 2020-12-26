@@ -61,7 +61,7 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t t1:${BUILD_NUMBER} ."
+                		bat "docker build -t tag11:${BUILD_NUMBER} ."
             			}
 		}
     }
