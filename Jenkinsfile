@@ -26,6 +26,7 @@ pipeline{
 				bat "mvn test"
 			}
 		}
+	    	/*
 		stage ('Sonar Analysis')
 		{
 			steps
@@ -35,7 +36,7 @@ pipeline{
 					bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
 				}
 			}
-		}
+		}*/
 	    stage ('Upload to Artifactory')
 		{
 			steps
