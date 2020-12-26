@@ -36,7 +36,7 @@ pipeline{
 					bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
 				}
 			}
-		}*/
+		}
 	    stage ('Upload to Artifactory')
 		{
 			steps
@@ -56,19 +56,19 @@ pipeline{
                     serverId: '123456789@artifactory',
                 )
 			}
-		}
+		}*/
 	    stage('Build Image')
     		{		
             		steps
 				{
-                		bat "docker build -t tag11:${BUILD_NUMBER} ."
+                		bat "docker build -t test456:${BUILD_NUMBER} ."
             			}
 		}
 	    stage("Docker Deployment")
         	{
 			steps
 			{
-                	bat "docker run --name rgtest -d -p 9010:8080 tag11:${BUILD_NUMBER}"
+                	bat "docker run --name testtombabe -d -p 9020:8080 test456:${BUILD_NUMBER}"
         		}
 		}
     }
