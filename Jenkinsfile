@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'maven'
+        maven 'Maven'
     }
     
     stages{
@@ -16,27 +16,27 @@ pipeline{
 		{
 			steps
 			{
-				bat "mvn install"
+				sh "mvn install"
 			}
 		}
 		stage ('Unit Testing')
 		{
 			steps
 			{
-				bat "mvn test"
+				sh "mvn test"
 			}
 		}
-	    	/*
+	    	
 		stage ('Sonar Analysis')
 		{
 			steps
 			{
 				withSonarQubeEnv("Test_Sonar") 
 				{
-					bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
+					sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
 				}
 			}
-		}*/
+		}
 	    stage ('Upload to Artifactory')
 		{
 			steps
@@ -61,20 +61,20 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t tag11:${BUILD_NUMBER} ."
+                		sh "docker build -t tag11:${BUILD_NUMBER} ."
             			}
 		}
 	    stage("Docker Deployment")
         	{
 			steps
 			{
-                	bat "docker run --name testrgdocker -d -p 9003:8080 tag11:${BUILD_NUMBER}"
+                	sh "docker run --name testrgdocker -d -p 9003:8080 tag11:${BUILD_NUMBER}"
         		}
 		}
     }
     post{
         success{
-            bat "echo success"
+            sh "echo success"
         }
     }
     
