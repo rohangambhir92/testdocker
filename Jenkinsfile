@@ -68,7 +68,7 @@ pipeline{
         	{
 			steps
 			{
-                	sh "docker run --name testrgdockertst -d -p 9007:8006 tag11:${BUILD_NUMBER}"
+                	sh "docker run --name rgtest -d -p 9010:8080 tag11:${BUILD_NUMBER}"
         		}
 		}
     }
