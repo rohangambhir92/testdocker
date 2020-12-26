@@ -64,10 +64,17 @@ pipeline{
                 		bat "docker build -t tag11:${BUILD_NUMBER} ."
             			}
 		}
+	    stage("Docker Deployment")
+        	{
+			steps
+			{
+                	bat "docker run --name testrgdocker -d -p 9989:8080 tag11:${BUILD_NUMBER}"
+        		}
+		}
     }
     post{
         success{
-            sh "echo success"
+            bat "echo success"
         }
     }
     
