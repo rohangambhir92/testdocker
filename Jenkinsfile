@@ -56,6 +56,13 @@ pipeline{
                 )
 			}
 		}
+	    stage('Build Image')
+    		{		
+            		steps
+				{
+                		sh "docker build -t t1:${BUILD_NUMBER} ."
+            			}
+		}
     }
     post{
         success{
