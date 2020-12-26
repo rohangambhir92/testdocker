@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'Maven'
+        maven 'maven'
     }
     
     stages{
@@ -16,14 +16,14 @@ pipeline{
 		{
 			steps
 			{
-				sh "mvn install"
+				bat "mvn install"
 			}
 		}
 		stage ('Unit Testing')
 		{
 			steps
 			{
-				sh "mvn test"
+				bat "mvn test"
 			}
 		}
 		stage ('Sonar Analysis')
@@ -32,7 +32,7 @@ pipeline{
 			{
 				withSonarQubeEnv("Test_Sonar") 
 				{
-					sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
+					bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
 				}
 			}
 		}
@@ -60,7 +60,7 @@ pipeline{
     		{		
             		steps
 				{
-                		sh "docker build -t t1:${BUILD_NUMBER} ."
+                		bat "docker build -t t1:${BUILD_NUMBER} ."
             			}
 		}
     }
