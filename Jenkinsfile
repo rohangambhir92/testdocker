@@ -26,7 +26,7 @@ pipeline{
 				bat "mvn test"
 			}
 		}
-	    	/*
+	    	
 		stage ('Sonar Analysis')
 		{
 			steps
@@ -56,7 +56,7 @@ pipeline{
                     serverId: '123456789@artifactory',
                 )
 			}
-		}*/
+		}
 	    stage('Build Image')
     		{		
             		steps
