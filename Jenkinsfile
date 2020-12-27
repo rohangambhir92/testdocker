@@ -36,7 +36,7 @@ pipeline{
 					bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
 				}
 			}
-		}*/
+		}
 	    stage ('Upload to Artifactory')
 		{
 			steps
@@ -56,7 +56,7 @@ pipeline{
                     serverId: '123456789@artifactory',
                 )
 			}
-		}
+		}*/
 	    stage('Build Image')
     		{		
             		steps
